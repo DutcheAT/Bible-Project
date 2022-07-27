@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/img"
+    android:elevation="4dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/app_name"
+        android:textFontWeight="@integer/material_motion_duration_long_1"
+        android:textStyle="bold"
+        android:textSize="28dp"
+        android:textColor="@color/white"></TextView>
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/setting"-->
+<!--        android:layout_gravity="right"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        ></Button>-->
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_settings_24"
+        android:id="@+id/s"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+       android:pointerIcon="context_menu"></ImageButton>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_search_24"
+        android:id="@+id/search"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"></ImageButton>
+
+</androidx.appcompat.widget.Toolbar>

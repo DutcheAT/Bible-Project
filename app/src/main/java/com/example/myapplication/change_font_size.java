@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -32,11 +33,11 @@ public class change_font_size extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(change_font_size.this,MainActivity.class);
+                Intent intent=new Intent(change_font_size.this,Settings.class);
                 startActivity(intent);
             }
         });
-        //ed=findViewById(R.id.edittext);
+
       setting=new Settings();
 
         sk.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -52,31 +53,16 @@ public class change_font_size extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                //tv.setText(ed.getText().toString());
                 tv.setTextSize(seekValue);
 
-<<<<<<< HEAD
-                //dbhelper.insert_font_size(seekValue);
-=======
-                //dbhelper.insert_font_size();
->>>>>>> 72ee283d30facde11f1b1dedb2c31188a0a58353
-//                boolean b1=dbhelper.insert_font_size();
-//                if (b1==true){
-//                    Toast.makeText(change_font_size.this, "success", Toast.LENGTH_SHORT).show();
-//                }
-//                else{
-//                    Toast.makeText(change_font_size.this, "failed", Toast.LENGTH_SHORT).show();
-//                }
-                boolean b=dbhelper.updateStudentInfo(seekValue);
-                if (b==true){
-                    Toast.makeText(change_font_size.this, "success", Toast.LENGTH_SHORT).show();
+                Cursor cursor =dbhelper.Read_sizs();
+                int x=cursor.getCount();
+                if(x>0) {
+                    boolean b = dbhelper.updateFont(seekValue);
+
                 }
-                else{
-                    Toast.makeText(change_font_size.this, "failed", Toast.LENGTH_SHORT).show();
-                }
-                //chapters_content.textview.setTextSize(seekValue);
-               // chapters_content=new Chapters_content(seekValue);
-                //chapters_content.set_textsize(seekValue);
+
+
             }
         });
     }

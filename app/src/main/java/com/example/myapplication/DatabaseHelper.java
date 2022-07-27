@@ -21,6 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL("CREATE TABLE Bible_font(counter TEXT PRIMARY KEY,size NUMBER)");
+        //db.execSQL("CREATE TABLE Bible_favourite(title TEXT PRIMARY KEY,content TEXT)");
 
     }
 
@@ -31,29 +32,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    //to insert data to database
-    public boolean insert_font_size(){
+    public boolean insert_font_size(int size){
 
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues cv = new ContentValues();
-//        cv.put("name",name);
-//        cv.put("password",pass);
-//        //cv.put("DEPARTMENT",department);
-//
-//        long Result = db.insert("student_detail2",null,cv);
-//
-//        if(Result==-1){
-//            return false;
-//        }
-//        else{
-//            return  true;
-//        }
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv=new ContentValues();
-       int size=25;
+
         cv.put("size",size);
         cv.put("counter","1");
-        //cv.put("password",pass);
 
         long res=db.insert("Bible_font",null,cv);
         if(res==-1){
@@ -64,44 +49,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
     }
+
 //To retrieve data from database
 
     public Cursor Read_sizs(){
 
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor cursor = db.rawQuery("Select * from student_detail",null);
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor c=db.rawQuery("select * from Bible_font",null);
 
         return c;
     }
 
-//    public Cursor ViewStudentInfo2(String name, String pass){
-//
-//        SQLiteDatabase db = this.getReadableDatabase();
-//
-//        Cursor cursor = db.rawQuery("Select * from student_detail2 where name=? and password=?",new String[]{name,pass});
-//
-//        return cursor;
-//    }
 
-    public boolean updateStudentInfo(int size) {
+    public boolean updateFont(int size) {
 
 
-//            String unamei=null;
-//            String pwdi=null;
-//            SQLiteDatabase db = this.getWritableDatabase();
-//            Cursor cursor = db.rawQuery("SELECT *FROM student_detail2",null);
-//            while(cursor.moveToNext()) {
-//                unamei = cursor.getString(0);
-//                pwdi = cursor.getString(1);
-//            }
-//            if(name.equals(unamei) && pass.equals(pwdi)){
-//                return true;
-//            }
-//            else{
-//                return false;
-//            }
         ContentValues cv=new ContentValues();
         cv.put("size",size);
 
@@ -115,61 +77,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         }
 
-
-
-
-
-//        boolean returnV=false;
-//
-//        try {
-//            int updated = db.update("student_detail", cv, "where student_id =" + id, null);
-//            if (updated == -1) {
-//                returnV=false;
-//            } else {
-//                returnV=true;
-//            }
-//        } catch (Exception e) {
-//
-//        }
-//
-//        return returnV;
-    }
-    public boolean deleteStudentInfo(String pass){
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        int d=db.delete("student_detail2","password=?",new String[]{pass});
-
-        if(d>0){
-            return true;
-        }
-        else{
-            return false;
-        }
-
-
-
-//        int deleted = db.delete("student_detail","student_id="+id,null);
-//        if(deleted==-1){
-//            return false;
-//        }
-//        else{
-//            return true;
-//        }
     }
 
-    public boolean login(String name, String pass){
-        SQLiteDatabase db= this.getReadableDatabase();
-
-        Cursor c=db.rawQuery("select * from student_detail2 where name=? and password=?",new String[]{name,pass});
-
-        int x=c.getCount();
-        if(x==0){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
 
 
 }

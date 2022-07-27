@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/img"
+    android:elevation="4dp"
+    android:id="@+id/chapters_content_toolbar"
+    >
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_keyboard_backspace_24"
+        android:id="@+id/s"
+       android:layout_marginStart="5dp"
+
+      ></ImageButton>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chapters_content_textview"
+android:layout_marginStart="5dp"
+        android:layout_marginEnd="0dp"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:textStyle="bold|italic"></TextView>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fav_button"
+        android:src="@drawable/ic_baseline_favorite_white_24"
+
+        android:layout_marginStart="2dp"></ImageButton>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_record_voice_over_24"
+        android:id="@+id/voice"
+        android:layout_marginStart="5dp"
+        ></ImageButton>
+
+
+</androidx.appcompat.widget.Toolbar>

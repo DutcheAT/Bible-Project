@@ -55,7 +55,11 @@ public class change_font_size extends AppCompatActivity {
                 //tv.setText(ed.getText().toString());
                 tv.setTextSize(seekValue);
 
+<<<<<<< HEAD
                 //dbhelper.insert_font_size(seekValue);
+=======
+                //dbhelper.insert_font_size();
+>>>>>>> 72ee283d30facde11f1b1dedb2c31188a0a58353
 //                boolean b1=dbhelper.insert_font_size();
 //                if (b1==true){
 //                    Toast.makeText(change_font_size.this, "success", Toast.LENGTH_SHORT).show();
